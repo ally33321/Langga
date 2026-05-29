@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Langga</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;700&family=MonteCarlo&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background-image: url('images/gradient bg.jpeg'); 
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    h2 {
+      font-family: 'MonteCarlo', cursive;
+      font-size: 4.7rem; 
+      color: hsl(351, 100%, 86%); 
+      text-align: center;
+      margin-top: 15px; 
+      letter-spacing: 1px;
+    }
+
+    .subheadings {
+      text-align: center;
+      margin-top: -50px;
+    }
+
+    /* Navigation links */
+    .subheadings .nav-link {
+      font-family: sans-serif;
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #444;              /* gray text */
+      margin: 0 18px;
+      cursor: pointer;
+      letter-spacing: 2px;
+      text-decoration: none;    /* removes default underline */
+      text-transform: uppercase;/* ALL CAPS */
+    }
+
+    .subheadings .nav-link:hover {
+      color: hsl(351, 100%, 86%); /* pink hover */
+      text-decoration: underline; /* underline only on hover */
+    }
+
+    /* Slideshow styles */
+    .slideshow-container {
+      width: 100%;
+      max-width: 1500px;
+      height: 750px;
+      margin: 40px auto;
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    .slides {
+      display: flex;
+      animation: loopSlide 30s linear infinite;
+    }
+
+    .slide {
+      display: flex;
+      justify-content: space-between;
+      width: 1500px;
+      flex-shrink: 0;
+    }
+
+    .slide img {
+      width: 480px;
+      height: 750px;
+      object-fit: cover;
+      border: 6px solid #fff;
+      box-shadow: 2px 4px 12px rgba(0,0,0,0.3);
+    }
+
+    @keyframes loopSlide {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-4500px); }
+    }
+
+    /* Letters section */
+    .letters-title {
+      font-family: 'MonteCarlo', cursive;
+      font-size: 4.7rem;
+      font-weight: bold;
+      color: hsl(351, 100%, 86%);
+      text-align: center;
+      margin-top: 50px;
+      margin-bottom: 5px;
+    }
+
+    .letters-subheading {
+      font-family: sans-serif;
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #555;
+      text-align: center;
+      margin-top: -25px;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+    }
+
+    /* Categories */
+    .categories {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 40px;
+      opacity: 0;
+      animation: fadeIn 1.5s ease forwards;
+      text-transform: uppercase;
+    }
+
+    .category {
+      font-family: 'Pixelify Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #333;
+      padding: 10px 20px;
+      border-radius: 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .category:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .love { background-color: hsl(351, 100%, 86%); }
+    .you { background-color: lightblue; }
+    .career { background-color: #a78bfa; color: white; }
+    .health { background-color: #f5deb3; }
+
+    /* Fade-in animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Letters Grid Section */
+    .letters-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(2, auto);
+      gap: 20px;
+      max-width: 1200px;
+      margin: 60px auto;
+      padding: 20px;
+    }
+
+    .letter {
+      background: transparent;
+      border: 1px solid #bbb;
+      border-radius: 6px;
+      padding: 20px;
+      font-family: 'IBM Plex Serif', serif;
+      font-size: 0.95rem;
+      line-height: 1.4rem;
+      position: relative;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      min-height: 250px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .letter:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .letter p {
+      margin: 0 0 40px 0;
+      color: #333;
+    }
+
+    .labels {
+      position: absolute;
+      bottom: -5px;
+      left: 15px;
+      display: flex;
+      gap: 8px;
+    }
+
+    .labels span {
+      font-family: 'Pixelify Sans', sans-serif;
+      font-size: 0.75rem;
+      font-weight: bold;
+      padding: 4px 10px;
+      border-radius: 12px;
+      color: #333;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      text-transform: uppercase;
+    }
+
+    .labels .love { background-color: hsl(351, 100%, 86%); }
+    .labels .you { background-color: lightblue; }
+    .labels .career { background-color: #a78bfa; color: white; }
+    .labels .health { background-color: #f5deb3; }
+    .labels .art { background-color: #ffe4e1; }
+    .labels .attitude { background-color: #d3f8d3; }
+  </style>
+</head>
+<body>
+  <h2>Xela Marie</h2>
+  <div class="subheadings">
+    <a href="index.html" class="nav-link">HOME</a>
+    <a href="letters.html" class="nav-link">LETTERS</a>
+    <a href="spotify.html" class="nav-link">SPOTIFY</a>
+    <a href="alex.html" class="nav-link">ALEX</a>
+    <a href="louisse.html" class="nav-link">LOUISSE</a>
+  </div>
+
+
+  <!-- Slideshow -->
+  <div class="slideshow-container">
+    <div class="slides">
+      <div class="slide">
+        <img src="xela/1.jpg" alt="Slide 1">
+        <img src="xela/2.jpg" alt="Slide 2">
+        <img src="xela/4.png" alt="Slide 3">
+      </div>
+      <div class="slide">
+        <img src="xela/5.png" alt="Slide 4">
+        <img src="xela/6.png" alt="Slide 5">
+        <img src="xela/7.png" alt="Slide 6">
+      </div>
+      <div class="slide">
+        <img src="xela/8.png" alt="Slide 7">
+        <img src="xela/9.png" alt="Slide 8">
+        <img src="xela/10.png" alt="Slide 9">
+      </div>
+
+      <!-- Duplicate slides for seamless looping -->
+      <div class="slide">
+        <img src="xela/1.jpg" alt="Slide 1">
+        <img src="xela/2.jpg" alt="Slide 2">
+        <img src="xela/4.png" alt="Slide 3">
+      </div>
+      <div class="slide">
+        <img src="xela/5.png" alt="Slide 4">
+        <img src="xela/6.png" alt="Slide 5">
+        <img src="xela/7.png" alt="Slide 6">
+      </div>
+      <div class="slide">
+        <img src="xela/8.png" alt="Slide 7">
+        <img src="xela/9.png" alt="Slide 8">
+        <img src="xela/10.png" alt="Slide 9">
+      </div>
+    </div>
+  </div>
+
+  <!-- Letters Section -->
+  <h2 class="letters-title">Letters for you Langga ᰔ </h2>
+  <h3 class="letters-subheading">CATEGORIZED LETTERS</h3>
+
+  <!-- Categories -->
+  <div class="categories">
+    <div class="category love">love</div>
+    <div class="category you">you</div>
+    <div class="category career">career</div>
+    <div class="category health">health</div>
+  </div>
+
+  <!-- Letters Grid Section -->
+  <div class="letters-grid">
+    <!-- Note 1 -->
+    <div class="letter love you">
+      <p>No that no matter where the roads takes us, always keep in mind that you are special. 
+        I hope you never forget that you deserve the same love you freely give to others.</p>
+      <div class="labels">
+        <span class="love">LOVE</span>
+        <span class="you">YOU</span>
+      </div>
+    </div>
+
+    <!-- Note 2 -->
+    <div class="letter health">
+      <p>Please remember to rest when your body asks for it. You don’t always have to be strong for everyone. 
+        Take care of yourself because you matter more than deadlines and responsibilities.</p>
+      <div class="labels"><span class="health">HEALTH</span></div>
+    </div>
+
+    <!-- Note 3 -->
+    <div class="letter career">
+      <p>Langga, I know that you always have doubts if kayanon mo pa ang MT, but you’re capable of more than you realize.</p>
+      <div class="labels"><span class="career">CAREER</span></div>
+    </div>
+
+    <!-- Note 4 -->
+    <div class="letter career health">
+      <p>My hardworking baby all through and through that you sometimes forget you are human too. 
+        Take breaks if kapoy na ok? My shoulder will always be here for you.</p>
+      <div class="labels">
+        <span class="career">CAREER</span>
+        <span class="health">HEALTH</span>
+      </div>
+    </div>
+
+    <!-- Note 5 -->
+    <div class="letter love">
+      <p>Never ever question your worth because you shine brighter compared to the stars above us. 
+        One day, someone will enjoy loving you as much as we did — gently, honestly, and consistently.</p>
+      <div class="labels"><span class="love">LOVE</span></div>
+    </div>
+
+    <!-- Note 6 -->
+    <div class="letter love">
+      <p>I hope that one day someone loves you in the quiet ways you deserve 
+        but also loudly that it reaches the other end.</p>
+      <div class="labels"><span class="love">LOVE</span></div>
+    </div>
+
+    <!-- Note 7 -->
+    <div class="letter you">
+      <p>My strong strong super strong baby! Mami, Manong, and Tito is very proud 
+        of their not-so-little-baby. You’re becoming someone stronger than the version of yourself that 
+        once felt lost. Even on days you feel unsure, there’s still something 
+        beautiful about the way you continue trying.</p>
+      <div class="labels"><span class="you">YOU</span></div>
+    </div>
+
+    <!-- Note 8 -->
+    <div class="letter love career health">
+      <p>Langga, please don't lose yourself in the process of everything. 
+        I know that life may seem unbearable but please take it easy. 
+        Ma travel pa ta ok?</p>
+      <div class="labels">
+        <span class="love">LOVE</span>
+        <span class="career">CAREER</span>
+        <span class="health">HEALTH</span>
+      </div>
+    </div>
+
+    <!-- Note 9 -->
+    <div class="letter you">
+      <p>You make others feel seen without even realizing it, but who checks up on you? 
+        Langga you are enough, more than my fingers could even count.</p>
+      <div class="labels"><span class="you">YOU</span></div>
+    </div>
+
+    <!-- Note 10 -->
+    <div class="letter love health">
+      <p>Take care of your heart the same way you would care for someone you deeply love.</p>
+      <div class="labels">
+        <span class="love">LOVE</span>
+        <span class="health">HEALTH</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Extra scrollable space -->
+  <div style="height: 2000px;"></div>
+</body>
+</html>
